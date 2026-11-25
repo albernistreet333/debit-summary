@@ -40,6 +40,9 @@ a{color:inherit}
 .top p{margin:8px 0 0;color:var(--muted);font-size:13.5px;line-height:1.7}
 .badge-date{flex-shrink:0;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:700;white-space:nowrap;box-shadow:var(--shadow)}
 .badge-date span{color:var(--muted);font-weight:500}
+.refresh-btn{margin-top:14px;display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-family:inherit;font-size:13.5px;font-weight:800;color:var(--ink);cursor:pointer;box-shadow:var(--shadow);min-height:40px;-webkit-tap-highlight-color:transparent}
+.refresh-btn:active{transform:scale(.97)}
+.refresh-btn:disabled{opacity:.6;cursor:default}
 
 /* hero next */
 .hero{background:var(--hero-bg);border:1.5px solid var(--hero-line);border-radius:20px;padding:20px 18px 18px;position:relative;overflow:hidden}
@@ -95,41 +98,6 @@ a{color:inherit}
 .bar-row.clickable .v::after{content:" ›";color:var(--muted);font-weight:900}
 .bar-row.clickable:active{background:var(--surface2)}
 
-/* forecast */
-.forecast{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-.forecast-head{padding:16px 16px 12px;border-bottom:1px solid var(--line)}
-.forecast-head h2{margin:0;font-size:17px;font-weight:900;line-height:1.4}
-.forecast-head p{margin:5px 0 0;font-size:12px;color:var(--muted);line-height:1.6}
-.forecast-total{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:14px 16px;background:var(--surface2);border-bottom:1px solid var(--line)}
-.forecast-total label{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
-.forecast-total strong{font-size:27px;font-weight:900;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
-.forecast-total strong small{font-size:15px;font-weight:800}
-.forecast-total span{font-size:12px;color:var(--muted);font-weight:600}
-.fc-group{padding:14px 16px 6px}
-.fc-group-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-.fc-group-head h3{margin:0;font-size:13.5px;font-weight:900;display:flex;align-items:center;gap:8px}
-.fc-subtotal{font-size:14px;font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap}
-.fc-subtotal small{font-size:11px;color:var(--muted);font-weight:700}
-.badge-known{display:inline-block;font-size:10.5px;font-weight:800;border-radius:999px;padding:3px 8px;background:var(--orange-bar);color:#fff;letter-spacing:.04em}
-@media(prefers-color-scheme:dark){.badge-known{background:#7c2d12;color:#fed7aa;border:1px solid #e88a1a}}
-.badge-est{display:inline-block;font-size:10.5px;font-weight:800;border-radius:999px;padding:3px 8px;background:transparent;color:var(--muted);border:1.5px dashed var(--muted);letter-spacing:.04em}
-.fc-list{list-style:none;margin:0;padding:0}
-.fc-row{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;margin-bottom:8px}
-.fc-row.known{background:color-mix(in srgb, var(--orange-bg) 72%, var(--surface));border:1px solid var(--hero-line)}
-.fc-row.est{background:var(--surface);border:1.5px dashed var(--line)}
-.fc-row .fc-date{font-size:12.5px;font-weight:800;line-height:1.4;font-variant-numeric:tabular-nums}
-.fc-row .fc-date span{display:block;font-size:11px;color:var(--muted);font-weight:600}
-.fc-row .fc-name{font-size:14px;font-weight:700;line-height:1.4}
-.fc-row .fc-name small{display:block;font-size:11.5px;color:var(--muted);font-weight:500;margin-top:1px}
-.fc-row .fc-amt{font-size:15px;font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
-.fc-row.est .fc-amt{color:var(--muted)}
-.fc-none{margin:0 0 10px;padding:10px 12px;border-radius:12px;background:var(--surface2);font-size:12.5px;color:var(--muted);line-height:1.6}
-.fc-none b{color:var(--ink)}
-.forecast-foot{padding:6px 16px 16px}
-.forecast-foot p{margin:0;font-size:12px;color:var(--muted);line-height:1.8}
-.forecast-foot p + p{margin-top:4px}
-@media(max-width:480px){.fc-row{grid-template-columns:84px 1fr auto}}
-
 /* controls */
 .controls{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(10px);padding:14px 0 10px;margin-top:8px}
 .seg{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
@@ -180,11 +148,11 @@ a{color:inherit}
 .row-toggle:focus-visible{outline:2px solid var(--orange-bar);outline-offset:-2px;border-radius:4px}
 .detail-hint{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:11.5px;font-weight:800;color:var(--orange-strong);background:var(--surface);border:1px solid var(--hero-line);padding:4px 9px;border-radius:999px;line-height:1.3}
 .detail-hint .chev-sm{display:inline-block;transition:transform .2s;font-size:12px;line-height:1}
-.row.has-details.open .detail-hint .chev-sm,.fc-row.has-details.open .detail-hint .chev-sm{transform:rotate(180deg)}
+.row.has-details.open .detail-hint .chev-sm{transform:rotate(180deg)}
 .row.has-details.open .detail-hint-open{display:none}
 .detail-hint-close{display:none}
-.row.has-details.open .detail-hint-close,.fc-row.has-details.open .detail-hint-close{display:inline}
-.row.has-details.open .detail-hint-open-label,.fc-row.has-details.open .detail-hint-open-label{display:none}
+.row.has-details.open .detail-hint-close{display:inline}
+.row.has-details.open .detail-hint-open-label{display:none}
 .detail-panel{border-top:1px dashed var(--line);margin:0 16px;padding:12px 2px 14px}
 .detail-panel[hidden]{display:none}
 .detail-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
@@ -201,11 +169,6 @@ a{color:inherit}
 .detail-total span{font-size:12px;font-weight:800;color:var(--muted)}
 .detail-total strong{font-size:15px;font-weight:900;font-variant-numeric:tabular-nums}
 @media(max-width:480px){.detail-item{grid-template-columns:76px 1fr auto}}
-/* forecast expandable */
-.fc-row.has-details{display:block;padding:0;overflow:hidden}
-.fc-toggle{width:100%;display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;padding:10px 12px;background:transparent;border:0;font-family:inherit;color:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
-@media(max-width:480px){.fc-toggle{grid-template-columns:84px 1fr auto}}
-.fc-row.has-details .detail-panel{margin:0 12px;border-top-color:var(--hero-line)}
 .empty{padding:18px;text-align:center;color:var(--muted);font-size:13px;display:none}
 .empty.show{display:block}
 
@@ -226,7 +189,8 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
   <header class="top">
     <div>
       <h1>引き落とし<br>月別まとめ</h1>
-      <p>口座引き落としを月ごとに整理しました。<br>引き落とし済みと、これからの予定を色で分けています。</p>
+      <p>請求月ベースで、毎月何にいくら支出したかをまとめました。<br>引き落とし済みと、これからの予定を色で分けています。</p>
+      <button class="refresh-btn" type="button" id="refresh-btn">↻ 更新</button>
     </div>
     <div class="badge-date">基準日 <span>2026年</span>11月23日<span>時点</span></div>
   </header>
@@ -277,62 +241,6 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
     <p class="chart-note">8月は PayPayカード 552,878円が大きく、月合計 610,650円と突出しています。次に大きいのは4月（損害保険ジャパン 250,008円を含む 423,607円）です。</p>
   </section>
 
-  <!-- Forecast -->
-  <section class="forecast" aria-label="支払い予測">
-    <div class="forecast-head">
-      <h2>支払い予測（11月25日〜12月24日）</h2>
-      <p>毎月25日〜翌月24日のサイクルで見た、1か月分の引き落とし見込みです。毎月25日21時に次の期間へ更新されます。</p>
-    </div>
-    <div class="forecast-total">
-      <label>期間の合計見込み</label>
-      <strong>約245,287<small> 円</small></strong>
-      <span>判明している分 165,359円 ＋ 予測分 約79,928円</span>
-    </div>
-
-    <div class="fc-group">
-      <div class="fc-group-head">
-        <h3>判明している分 <span class="badge-known">金額確定</span></h3>
-        <div class="fc-subtotal"><small>小計</small> 165,359円</div>
-      </div>
-      <ul class="fc-list">
-        <li class="fc-row known">
-          <div class="fc-date">11月27日<span>（金）</span></div>
-          <div class="fc-name">PayPayカード</div>
-          <div class="fc-amt">165,359円</div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="fc-group">
-      <div class="fc-group-head">
-        <h3>これからの予測（目安） <span class="badge-est">予測・目安</span></h3>
-        <div class="fc-subtotal"><small>小計</small> 約79,928円</div>
-      </div>
-      <ul class="fc-list">
-        <li class="fc-row est">
-          <div class="fc-date">11月27日<span>（金）頃</span></div>
-          <div class="fc-name">ソニー生命 保険料<small>目安。直近10月27日の実績額</small></div>
-          <div class="fc-amt">約37,685円</div>
-        </li>
-        <li class="fc-row est">
-          <div class="fc-date">12月10日<span>（木）頃</span></div>
-          <div class="fc-name">三井住友PiTaPa<small>目安。直近3回の実績額 24,980円・17,870円・22,360円の平均</small></div>
-          <div class="fc-amt">約21,737円</div>
-        </li>
-        <li class="fc-row est">
-          <div class="fc-date">12月15日<span>（火）頃</span></div>
-          <div class="fc-name">大阪ガス<small>目安。直近11月16日の実績額</small></div>
-          <div class="fc-amt">約20,506円</div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="forecast-foot">
-      <p>予測は過去の実績からの目安です。お知らせメールが届いたら確定の金額に置き換わります。</p>
-      <p>三井住友カードは引き落としが不定期のため、予測には含めていません。</p>
-    </div>
-  </section>
-
   <!-- Controls -->
   <div class="controls">
     <div class="seg" role="group" aria-label="表示フィルター">
@@ -350,7 +258,7 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
 
   <section class="note-box">
     <h3>見方について</h3>
-    <p>「引き落とし済み」は、基準日（2026年11月23日）までに引き落とし日を過ぎたものを表示しています。「予定」は、PayPayカードの請求メールで確定した11月27日分のみです。金額は各お知らせメールの記載どおりです。各月のPayPayカードは「明細を見る」をタップすると利用明細が開きます。</p>
+    <p>各月は請求月ベースでまとめています（PayPayカードは、その月に請求される金額です）。「引き落とし済み」は、基準日（2026年11月23日）までに引き落とし日を過ぎたものを表示しています。「予定」は、PayPayカードの請求メールで確定した11月27日分のみです。金額は各お知らせメールの記載どおりです。各月のPayPayカードは「明細を見る」をタップすると利用明細が開きます。</p>
   </section>
 
   <footer>
@@ -663,7 +571,7 @@ DATA.slice().reverse().forEach(function(mo){
 });
 
 // toggle detail panels (PayPay etc.)
-document.querySelectorAll('.row-toggle, .fc-toggle').forEach(function(btn){
+document.querySelectorAll('.row-toggle').forEach(function(btn){
   btn.addEventListener('click', function(){
     var container = btn.closest('.has-details');
     var panelId = btn.getAttribute('aria-controls');
@@ -724,6 +632,25 @@ document.querySelectorAll('[data-filter]').forEach(function(btn){
     if(f==='planned') note.textContent = '予定のみ表示しています（1件 ・ 11月分）';
     updateToggleLabel();
   });
+});
+
+// refresh button: drop caches and reload the latest version
+document.getElementById('refresh-btn').addEventListener('click', function(){
+  var btn = this;
+  btn.disabled = true;
+  btn.textContent = '↻ 更新中…';
+  function reloadFresh(){
+    var url = window.location.href.split('#')[0];
+    var sep = url.indexOf('?') === -1 ? '?' : '&';
+    window.location.replace(url + sep + 'v=' + Date.now());
+  }
+  if('caches' in window){
+    caches.keys().then(function(keys){
+      return Promise.all(keys.map(function(k){ return caches.delete(k); }));
+    }).then(reloadFresh, reloadFresh);
+  } else {
+    reloadFresh();
+  }
 });
 </script>
 </body>
