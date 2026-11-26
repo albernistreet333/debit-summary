@@ -192,7 +192,7 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
       <p>請求月ベースで、毎月何にいくら支出したかをまとめました。<br>引き落とし済みと、これからの予定を色で分けています。</p>
       <button class="refresh-btn" type="button" id="refresh-btn">↻ 更新</button>
     </div>
-    <div class="badge-date">基準日 <span>2026年</span>11月23日<span>時点</span></div>
+    <div class="badge-date">基準日 <span>2026年</span>11月26日<span>時点</span></div>
   </header>
 
   <!-- Next debit -->
@@ -200,17 +200,18 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
     <div class="hero-label"><span class="dot-live"></span> 次の引き落とし予定</div>
     <div class="hero-main">
       <div class="hero-date">11月27日 <small>（金）</small></div>
-      <div class="hero-amount">165,359<small> 円</small></div>
+      <div class="hero-amount">192,981<small> 円</small></div>
     </div>
     <div class="hero-breakdown">
       <span class="hero-chip">PayPayカード <b>165,359円</b></span>
+      <span class="hero-chip">ソニー生命 保険料 <b>27,622円</b></span>
     </div>
-    <p class="hero-note">PayPayカードの「11月の請求金額のお知らせ」（11月23日着）で確定した金額です。</p>
+    <p class="hero-note">三井住友銀行の事前お知らせ（11月26日着）で、PayPayカードとソニー生命 保険料の11月27日分が通知されました。</p>
   </section>
 
   <!-- Legend -->
   <div class="legend" aria-label="凡例">
-    <div class="legend-item"><span class="swatch done"></span>引き落とし済み <span>— 11月23日以前</span></div>
+    <div class="legend-item"><span class="swatch done"></span>引き落とし済み <span>— 11月26日以前</span></div>
     <div class="legend-item"><span class="swatch planned"></span>予定 <span>— 11月27日分</span></div>
   </div>
 
@@ -218,8 +219,8 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
   <section class="summary" aria-label="合計">
     <div class="card">
       <label>2026年3月〜11月 合計</label>
-      <strong>2,077,928<small> 円</small></strong>
-      <p>全43件の引き落とし</p>
+      <strong>2,105,550<small> 円</small></strong>
+      <p>全44件の引き落とし</p>
     </div>
     <div class="card done-card">
       <label>● 引き落とし済み</label>
@@ -228,8 +229,8 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
     </div>
     <div class="card planned-card">
       <label>● 予定（これから）</label>
-      <strong style="color:var(--orange-ink)">165,359<small> 円</small></strong>
-      <p>1件 ・ 11月27日分</p>
+      <strong style="color:var(--orange-ink)">192,981<small> 円</small></strong>
+      <p>2件 ・ 11月27日分</p>
     </div>
   </section>
 
@@ -244,9 +245,9 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
   <!-- Controls -->
   <div class="controls">
     <div class="seg" role="group" aria-label="表示フィルター">
-      <button type="button" data-filter="all" aria-pressed="true">すべて <span class="cnt">43件</span></button>
+      <button type="button" data-filter="all" aria-pressed="true">すべて <span class="cnt">44件</span></button>
       <button type="button" data-filter="done" aria-pressed="false">済み <span class="cnt">42件</span></button>
-      <button type="button" data-filter="planned" aria-pressed="false">予定 <span class="cnt">1件</span></button>
+      <button type="button" data-filter="planned" aria-pressed="false">予定 <span class="cnt">2件</span></button>
     </div>
     <div class="controls-row">
       <p id="filter-note">すべての月を表示しています</p>
@@ -258,7 +259,7 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.8;margin:0}
 
   <section class="note-box">
     <h3>見方について</h3>
-    <p>各月は請求月ベースでまとめています（PayPayカードは、その月に請求される金額です）。「引き落とし済み」は、基準日（2026年11月23日）までに引き落とし日を過ぎたものを表示しています。「予定」は、PayPayカードの請求メールで確定した11月27日分のみです。金額は各お知らせメールの記載どおりです。各月のPayPayカードは「明細を見る」をタップすると利用明細が開きます。</p>
+    <p>各月は請求月ベースでまとめています（PayPayカードは、その月に請求される金額です）。「引き落とし済み」は、基準日（2026年11月26日）までに引き落とし日を過ぎたものを表示しています。「予定」は、11月27日分（PayPayカードとソニー生命 保険料）です。金額は各お知らせメールの記載どおりです。各月のPayPayカードは「明細を見る」をタップすると利用明細が開きます。</p>
   </section>
 
   <footer>
@@ -481,10 +482,11 @@ var DATA = [
       {d:"8月16日", w:"日", name:"ETCカード売上", amt:480}
     ]}
   ]},
-  {m:"2026-11", label:"2026年 11月", total:224359, done:59000, planned:165359, items:[
+  {m:"2026-11", label:"2026年 11月", total:251981, done:59000, planned:192981, items:[
     {d:"11月10日", w:"火", name:"三井住友PiTaPa", amt:22360, s:"done"},
     {d:"11月16日", w:"月", name:"水道料", amt:16134, s:"done"},
     {d:"11月16日", w:"月", name:"大阪ガス", amt:20506, s:"done"},
+    {d:"11月27日", w:"金", name:"ソニー生命 保険料", amt:27622, s:"planned", note:"三井住友銀行の事前お知らせ（11月26日着）より"},
     {d:"11月27日", w:"金", name:"PayPayカード", amt:165359, s:"planned", note:"確定（PayPayカード「11月の請求金額のお知らせ」より）", details:[
       {d:"10月31日", w:"土", name:"富士山GXHD", amt:3300},
       {d:"10月28日", w:"水", name:"GOOGLE GOOGLE ONE", amt:290},
@@ -627,9 +629,9 @@ document.querySelectorAll('[data-filter]').forEach(function(btn){
       if(empty) empty.classList.toggle('show', visible===0);
       if(visible>0 && sec.classList.contains('closed')){ sec.classList.remove('closed'); sec.querySelector('.month-head').setAttribute('aria-expanded','true'); }
     });
-    if(f==='all') note.textContent = 'すべての月を表示しています（全43件）';
+    if(f==='all') note.textContent = 'すべての月を表示しています（全44件）';
     if(f==='done') note.textContent = '引き落とし済みのみ表示しています（42件）';
-    if(f==='planned') note.textContent = '予定のみ表示しています（1件 ・ 11月分）';
+    if(f==='planned') note.textContent = '予定のみ表示しています（2件 ・ 11月分）';
     updateToggleLabel();
   });
 });
